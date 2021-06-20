@@ -1,0 +1,63 @@
+@use "styles/colors" as colors;
+@use "styles/screen" as screen;
+
+
+.button {
+  display: block;
+
+  @include screen.lg {
+    display: none;
+  }
+
+  position: relative;
+  width: 60px;
+  height: 60px;
+
+  cursor: pointer;
+  z-index: 1301;
+
+  .line {
+    position: absolute;
+    height: 4px;
+    width: 60%;
+    left: 20%;
+    background: colors.$green;
+    border-radius: 10px;
+    transition: all cubic-bezier(0.25, 0.1, 0.28, 1.54) 0.3s;
+  }
+
+  .line01 {
+    transform: rotate(45deg);
+    top: 48%;
+  }
+
+  .line02 {
+    width: 40%;
+    left: 40%;
+    opacity: 0;
+  }
+
+  .line02, .line03 {
+    transform: rotate(-45deg);
+    top: 48%;
+  }
+
+}
+
+.collapsed {
+  .line {
+    transform: rotate(0);
+  }
+
+  .line01 {
+    top: 28%;
+  }
+
+  .line02 {
+    opacity: 1;
+  }
+
+  .line03 {
+    top: 68%;
+  }
+}

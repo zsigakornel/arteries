@@ -1,0 +1,82 @@
+@use "styles/colors" as colors;
+@use "styles/screen" as screen;
+
+
+.menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px;
+  transition: padding 0.3s ease;
+  width: 100%;
+  position: absolute;
+
+
+  @include screen.lg {
+    padding: 49px 100px;
+  }
+
+  @include screen.xxl {
+    padding: 49px 145px;
+  }
+
+  img {
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hideOnMobile {
+    display: none;
+
+    @include screen.lg {
+      display: block;
+    }
+
+    a {
+      margin-left: 58px;
+      line-height: 1.2rem;
+      color: colors.$white;
+      font-weight: 300;
+      position: relative;
+      z-index: 2;
+
+
+      &.activeLink {
+        font-weight: 700;
+        border-bottom: 5px solid colors.$green;
+        color: colors.$brown;
+        padding-bottom: 13px;
+      }
+    }
+  }
+}
+
+.drawer {
+  text-align: center;
+  padding-top: 152px;
+  width: 70vw;
+
+  @include screen.lg {
+    width: 40vw;
+  }
+
+  a {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    font-weight: 300;
+
+    &.activeLink {
+      font-weight: 700;
+      background-color: colors.$brown;
+      color: colors.$white;
+    }
+
+    &:hover {
+      background-color: colors.$light-brown;
+      color: colors.$white;
+    }
+  }
+}
