@@ -1,0 +1,14 @@
+@use "styles/colors" as colors;
+@use "styles/screen" as screen;
+
+
+.container {
+  background-color: colors.$white;
+  overflow: hidden;
+  position: relative;
+
+
+  @include screen.lg {
+    background-color: colors.$green;
+  }
+}
