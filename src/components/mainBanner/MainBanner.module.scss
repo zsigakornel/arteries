@@ -1,0 +1,121 @@
+@use "styles/colors" as colors;
+@use "styles/screen" as screen;
+
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 160px;
+  padding-bottom: 160px;
+
+  .circle {
+    z-index: 1;
+    background-color: colors.$green;
+    border-radius: 50%;
+    position: absolute;
+
+    width: 1000px;
+    height: 600px;
+    transform: translateX(-50%);
+    left: 50%;
+    bottom: -250px;
+
+    @include screen.lg {
+      transform: none;
+      background-color: colors.$white;
+      left: unset;
+      width: 2000px;
+      height: 2000px;
+      top: -400px;
+      right: 350px;
+      bottom: unset;
+    }
+
+    @include screen.xxl {
+      width: 2000px;
+      height: 2000px;
+      right: 400px;
+      top: -400px;
+    }
+  }
+
+  .frappe {
+    background-image: url("/images/frappe.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: rotate(-45deg);
+    transition: all 0.3s ease;
+    height: 500px;
+
+    @include screen.lg {
+      background-position: center;
+      background-size: contain;
+      transform: rotate(0);
+    }
+
+    @include screen.xxl {
+      background-size: 80%;
+    }
+  }
+
+  .main {
+    height: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+
+    @include screen.lg {
+      padding-left: 100px;
+      padding-right: 100px;
+    }
+
+    @include screen.xxl {
+      padding-left: 149px;
+      padding-right: 149px;
+    }
+  }
+
+  .textContainer {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    text-align: center;
+
+    @include screen.lg {
+      text-align: left;
+    }
+
+    p {
+      line-height: 1.5rem;
+      letter-spacing: 0.05em;
+      margin-bottom: 35px;;
+
+      @include screen.lg {
+        font-size: 1.5rem;
+        line-height: 3rem;
+      }
+    }
+
+    .button {
+      color: colors.$white;
+      background-color: colors.$green;
+      border-color: colors.$green;
+      border-radius: 5px;
+      box-shadow: 20px 20px 40px colors.$light-color;
+      position: relative;
+      z-index: 2;
+      padding: 24px 27px;
+      font-size: 1rem;
+      line-height: 1.5rem;
+
+      @include screen.lg {
+        padding: 26px 40px;
+        font-size: 1.5rem;
+        line-height: 1.8rem;
+      }
+
+    }
+  }
+
+}
